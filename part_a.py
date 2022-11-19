@@ -44,14 +44,12 @@ Compare four categories of housing and their prices in two regions of the UK. Th
 ld = london_data
 nd = newcastle_data
 
-fd   = {'fontsize':18} # fd -> fontdict
-fd22 = {'fontsize':22} # fd -> fontdict
 
 def part_a(ax1, ax2, show=True, save=False):
     ## Axis 1 - London Data
     ax1.grid(axis='y', color='black')
     ax1.bar(ld['Property_Type'], ld['Avg_Price'], color='red')
-    ax1.set_title("London", color='red')
+    ax1.set_title("London", color='red', fontdict=fd22)
     ax1.tick_params('x', labelrotation=0)
     ax1.set_yticks(ticks=[x*200_000 for x in range(6)])
     ax1.set_yticklabels(labels=["£0", "£200K", "£400K",  "£600K", "£800K", "£1M"])

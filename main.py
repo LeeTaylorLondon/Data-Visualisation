@@ -38,4 +38,4 @@ def collage(showplt=True, savepltimg=False):
 
 
 if __name__ == '__main__':
-    collage(showplt=True, savepltimg=True)
+    collage(showplt=False, savepltimg=True)
