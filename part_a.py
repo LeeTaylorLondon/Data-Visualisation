@@ -48,8 +48,8 @@ nd = newcastle_data
 def part_a(ax1, ax2, show=True, save=False):
     ## Axis 1 - London Data
     ax1.grid(axis='y', color='black')
-    ax1.bar(ld['Property_Type'], ld['Avg_Price'], color='red')
-    ax1.set_title("London", color='red', fontdict=fd22)
+    ax1.bar(ld['Property_Type'], ld['Avg_Price'], color='red', )
+    ax1.set_title("London", color='red')
     ax1.tick_params('x', labelrotation=0)
     ax1.set_yticks(ticks=[x*200_000 for x in range(6)])
     ax1.set_yticklabels(labels=["£0", "£200K", "£400K",  "£600K", "£800K", "£1M"])
@@ -57,7 +57,7 @@ def part_a(ax1, ax2, show=True, save=False):
     ax1.set_ylabel("Average Prices £")
     ax1.set_ylim(0, 1_000_000)
     ## Axis 2 - Newcastle Data
-    ax2.grid(axis='y')
+    ax2.grid(axis='y', color='black')
     ax2.bar(nd['Property_Type'], nd['Avg_Price'], color='blue')
     ax2.set_title("Newcastle upon Tyne", color='blue')
     ax2.tick_params('x', labelrotation=0)

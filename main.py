@@ -10,10 +10,11 @@ def collage(showplt=True, savepltimg=False):
     """ Plot a 4 panel 16:9 figure for each graph
     and text summarising each graph. """
     ## Configure main figure and subplots
+    plt.rcParams.update({'font.size': 18})
     fig, (r1, r2) = plt.subplots(2, 2, figsize=(19.2, 10.8),
                                  facecolor=(0.90, 0.90, 0.90, 1))
     fig.suptitle("State of the (UK) Nation 2021", size=22)
-    fig.tight_layout(pad=1)
+    fig.tight_layout(pad=0.5)
     plt.subplots_adjust(wspace=-0.1)
     plts = [r1[0], r1[1], r2[0], r2[1]]
     for plt_ in plts:
@@ -23,12 +24,14 @@ def collage(showplt=True, savepltimg=False):
     ## Create images
     parts = [part_a, part_b, part_c]
     for i,part in enumerate(parts):
-        if i != len(parts) - 1: fig_, (ax1_, ax2_) = plt.subplots(1, 2, figsize=(19.2, 10.8))
+        if i != len(parts) - 1:
+            fig_, (ax1_, ax2_) = plt.subplots(1, 2, figsize=(19.2, 10.8))
         else:
             fig_, ax1_ = plt.subplots(1, 1, figsize=(19.2, 10.8))
             ax2_ = None
         part(ax1_, ax2_, show=False, save=True)
         del fig_, ax1_, ax2_
+    plt.style.use('default')
     ## Load and plot images
     for plt_, ichar in zip(plts, imgs_char):
         plt_.imshow(mpimg.imread(f'Images/part_{ichar}.png'))

@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-fd   = {'fontsize':18} # fd -> font-dict
-fd22 = {'fontsize':22} # fd -> font-dict
-fd
+# fd -> font-dict
+fd   = {'fontsize':18}
+fd22 = {'fontsize':22}
+fdB  = {'fontsize':25}
+big  = 25

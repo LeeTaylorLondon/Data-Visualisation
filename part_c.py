@@ -51,7 +51,7 @@ def part_c(ax1, fig, show=True, save=False):
                labels=["£" + str(x) + ".00" for x in range(int(min(c)),
                                                            int(max(c)) + 200, 200)])
     ax1.set_xticks(ticks=[x for x in range(0, len(d), 125)],
-               rotation=0)
+               rotation=90)
     # Render chart with legend
     ax1.legend()
     if show: plt.show()
