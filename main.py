@@ -21,8 +21,8 @@ def collage(showplt=True, savepltimg=False):
         plt_.imshow(mpimg.imread(f'Images/part_{ichar}.png'))
     ## Render figure and save as image
     if showplt: fig.show()
-    if savepltimg: plt.savefig('final.png')
+    if savepltimg: fig.savefig('final.png')
 
 
 if __name__ == '__main__':
-    collage(showplt=True, savepltimg=False)
+    collage(showplt=True, savepltimg=True)
