@@ -4,12 +4,15 @@ import matplotlib.image as mpimg
 
 
 def collage(showplt=True, savepltimg=False):
+    """ Plot a 4 panel 16:9 figure for each graph
+    and text summarising each graph. """
     ## Create figure of subplots 'r' = Row
     ## Configure main figure and subplots
     fig, (r1, r2) = plt.subplots(2, 2, figsize=(19.2, 10.8),
                                  facecolor=(0.90, 0.90, 0.90, 1))
-    fig.suptitle("State of the (UK) Nation 2021")
-    fig.tight_layout(pad=0)
+    fig.suptitle("State of the (UK) Nation 2021", size=22)
+    fig.tight_layout(pad=1)
+    plt.subplots_adjust(wspace=-0.1)
     # plt.subplots_adjust(wspace=-0.1, hspace=0)
     plts = [r1[0], r1[1], r2[0], r2[1]]
     for plt_ in plts:
