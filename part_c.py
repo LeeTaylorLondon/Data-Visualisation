@@ -29,8 +29,11 @@ def calc_moving_avg(period=1, alpha=0.5, c=ftse2008):
   # ma = pd.core.series.Series(ma)
   return mali
 
-def part_c(ax1, show=True, save=False):
+def part_c(ax1, fig, show=True, save=False):
+    plt.style.use('dark_background')
+    ax1 = plt.axes()
     ax1.grid(color='grey')
+    ax1.set_facecolor('black')
     # Shorten variable names
     d = ftse5y['date']  # d = Dates
     c = ftse5y['Close'] # c = Close prices
@@ -38,7 +41,7 @@ def part_c(ax1, show=True, save=False):
     ma = calc_moving_avg(1, 0.025, ftse5y)
     # Plot data
     ax1.plot(d, c, linewidth=1.25, color=(0, 0.8, 0, 1.0), label='Close Price')
-    ax1.plot(d, ma, linewidth=0.75, color=(0.8, 0, 0.8, 1.0), label='Moving Average')
+    ax1.plot(d, ma, linewidth=0.75, color=(0.0, 0.7, 0.6, 1.0), label='Moving Average')
     # Title and Axis labels
     ax1.set_title("FTSE Data")
     ax1.set_xlabel("Date (Year-Month-Day)")
@@ -52,4 +55,4 @@ def part_c(ax1, show=True, save=False):
     # Render chart with legend
     ax1.legend()
     if show: plt.show()
-    if save: plt.savefig('/Images/part_c.png')
+    if save: plt.savefig('Images/part_c.png')

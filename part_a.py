@@ -70,7 +70,7 @@ def part_a(ax1, ax2, show=True, save=False):
     ax2.set_ylim(0, 1_000_000)
 
     if show: fig.show()
-    if save: plt.savefig('/Images/part_a.png')
+    if save: plt.savefig('Images/part_a.png')
 
 
 if __name__ == '__main__':

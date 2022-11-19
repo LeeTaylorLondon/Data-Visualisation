@@ -59,4 +59,4 @@ def part_b(ax1, ax2, show=True, save=False):
     ax2.plot(xseq, a + b * xseq, color='k', lw=2.0)
 
     if show: fig_b.show()
-    if save: plt.savefig('/Images/part_b.png')
+    if save: plt.savefig('Images/part_b.png')
