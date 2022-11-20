@@ -50,9 +50,8 @@ def part_c(ax1, fig, show=True, save=False):
     ax1.set_yticks(ticks=[y for y in range(int(min(c)), int(max(c)) + 200, 200)],
                labels=["£" + str(x) + ".00" for x in range(int(min(c)),
                                                            int(max(c)) + 200, 200)])
-    ax1.set_xticks(ticks=[x for x in range(0, len(d), 125)],
-               rotation=90)
+    ax1.set_xticks(ticks=[x for x in range(0, len(d), 125)], rotation=90)
     # Render chart with legend
     ax1.legend()
-    if show: plt.show()
     if save: plt.savefig('Images/part_c.png')
+    if show: plt.show()

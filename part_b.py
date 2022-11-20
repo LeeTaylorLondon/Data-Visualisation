@@ -41,11 +41,14 @@ def part_b(ax1, ax2, show=True, save=False):
     ax1.set_xlabel("Average Broadband Download Speed")
     ax1.set_ylabel("Average Broadband Upload Speed")
     x, y = bbs['averageDown'], bbs['averageUpload']
-    ax1.scatter(x=x, y=y, color='red')
+    ax1.scatter(x=x, y=y, color='red',
+             label='Down to Up Speed')
     # Regression line
     b, a = np.polyfit(x, y, deg=1)
     xseq = np.linspace(25, 165)
-    ax1.plot(xseq, a + b * xseq, color='k', lw=2.0)
+    ax1.plot(xseq, a + b * xseq, color='k', lw=2.0,
+             label='Regression Line')
+    ax1.legend()
     ## Clean data
     ax2.grid()
     ax2.set_title("Dataset with outliers removed", color='blue')
@@ -53,10 +56,14 @@ def part_b(ax1, ax2, show=True, save=False):
     ax2.set_ylabel("Average Broadband Upload Speed")
     # Regression line
     x2, y2 = bbsc['averageDown'], bbsc['averageUpload']
-    ax2.scatter(x=x2, y=y2, color='blue')
+    ax2.scatter(x=x2, y=y2, color='blue',
+             label='Down to Up Speed')
     b2, a2 = np.polyfit(x2, y2, deg=1)
     xseq = np.linspace(30, 100)
-    ax2.plot(xseq, a + b * xseq, color='k', lw=2.0)
+    ax2.plot(xseq, a + b * xseq, color='k', lw=2.0,
+             label='Regression Line')
+    ax2.legend()
 
-    if show: fig_b.show()
     if save: plt.savefig('Images/part_b.png')
+    if show: plt.show()
+
