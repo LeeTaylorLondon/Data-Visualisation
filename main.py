@@ -10,10 +10,10 @@ def collage(showplt=True, savepltimg=False):
     """ Plot a 4 panel 16:9 figure for each graph
     and text summarising each graph. """
     ## Configure main figure and subplots
-    plt.rcParams.update({'font.size': 20})
+    plt.rcParams.update({'font.size': 16})
     fig, (r1, r2) = plt.subplots(2, 2, figsize=(19.2, 10.8),
-                                 facecolor=(0.90, 0.90, 0.90, 1))
-    fig.suptitle("State of the (UK) Nation 2021", size=22)
+                                 facecolor=(0.60, 0.60, 0.60, 1))
+    fig.suptitle("State of the (UK) Nation 2021", size=20)
     fig.tight_layout(pad=0.5)
     plt.subplots_adjust(wspace=-0.1)
     plts = [r1[0], r1[1], r2[0], r2[1]]
@@ -44,10 +44,8 @@ def collage(showplt=True, savepltimg=False):
 
 if __name__ == '__main__':
     collage(showplt=False, savepltimg=True)
-    # Todo: Rotate part_c x-labels
-    # Todo: Write short summaries for each plot
     # Todo: part_b highlight one or two areas of interest
+    # Todo: Write short summaries for each plot
     # Todo: Explain moving average for part_c
-    # Todo: SuperTitle for each plot
     # Todo: 1,000 Word Report
     # Todo: 200 Word Report

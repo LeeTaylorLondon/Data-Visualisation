@@ -49,7 +49,9 @@ def part_a(fig, ax1, ax2, show=True, save=False):
     fig.suptitle("Regional Comparison of House Types and Prices")
     ## Axis 1 - London Data
     ax1.grid(axis='y', color='black')
-    ax1.bar(ld['Property_Type'], ld['Avg_Price'], color='red')
+    ax1.bar(ld['Property_Type'], ld['Avg_Price'], color=
+            [(1.0, 0, 0, 1.0), (0.75, 0, 0, 1.0),
+             (0.5, 0, 0, 1.0), (0.25, 0, 0, 1.0)])
     ax1.set_title("London", color='red')
     ax1.tick_params('x', labelrotation=0)
     ax1.set_yticks(ticks=[x*200_000 for x in range(6)])
@@ -59,7 +61,9 @@ def part_a(fig, ax1, ax2, show=True, save=False):
     ax1.set_ylim(0, 1_000_000)
     ## Axis 2 - Newcastle Data
     ax2.grid(axis='y', color='black')
-    ax2.bar(nd['Property_Type'], nd['Avg_Price'], color='blue')
+    ax2.bar(nd['Property_Type'], nd['Avg_Price'], color=[
+        (0, 0, 1.0, 1), (0, 0, 0.75, 1),
+        (0, 0, 0.5, 1), (0, 0, 0.25, 1)])
     ax2.set_title("Newcastle upon Tyne", color='blue')
     ax2.tick_params('x', labelrotation=0)
     ax2.set_yticks(ticks=[x*200_000 for x in range(6)])
