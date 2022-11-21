@@ -34,7 +34,8 @@ print(f"Len(bbSpeedDf_cleaned) = {len(bbSpeedDf_cleaned)}")
 bbs  = bbSpeedDf
 bbsc = bbSpeedDf_cleaned
 
-def part_b(ax1, ax2, show=True, save=False):
+def part_b(fig, ax1, ax2, show=True, save=False):
+    fig.suptitle("National Download to Upload Speed Comparison")
     ## Non clean data
     ax1.grid()
     ax1.set_title("Dataset with outliers", color='red')

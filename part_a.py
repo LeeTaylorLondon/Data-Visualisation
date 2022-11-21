@@ -45,7 +45,8 @@ ld = london_data
 nd = newcastle_data
 
 
-def part_a(ax1, ax2, show=True, save=False):
+def part_a(fig, ax1, ax2, show=True, save=False):
+    fig.suptitle("Regional Comparison of House Types and Prices")
     ## Axis 1 - London Data
     ax1.grid(axis='y', color='black')
     ax1.bar(ld['Property_Type'], ld['Avg_Price'], color='red')
@@ -73,5 +74,5 @@ def part_a(ax1, ax2, show=True, save=False):
 
 if __name__ == '__main__':
     plt.rcParams.update({'font.size': 20})
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(19.2, 10.8))
-    part_a(ax1, ax2, False, True)
+    fig_, (ax1_, ax2_) = plt.subplots(1, 2, figsize=(19.2, 10.8))
+    part_a(fig_, ax1_, ax2_, False, True)

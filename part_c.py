@@ -31,13 +31,14 @@ def calc_moving_avg(period=1, alpha=0.5, c=ftse2008):
     return mali
 
 
-def part_c(ax1, fig, show=True, save=False):
+def part_c(fig, ax1, _, show=True, save=False):
     plt.style.use('dark_background')
     ax1 = plt.axes()
     ax1.grid(color='grey')
     ax1.set_facecolor('black')
+    fig.suptitle("Top 100 UK Companies (FTSE) Close Price (2008 to 2021)")
     # Shorten variable names
-    d = ftse5y['date']  # d = Dates
+    d = ftse5y['date']   # d = Dates
     c = ftse5y['Close']  # c = Close prices
     # Calculate moving average
     ma = calc_moving_avg(1, 0.025, ftse5y)
@@ -50,12 +51,11 @@ def part_c(ax1, fig, show=True, save=False):
     ax1.set_ylabel("Close Price")
     # Axis tickers and labels
     ax1.set_xticks(ticks=[x for x in range(0, len(d), 125)])
-    ax1.tick_params(labelrotation=45)
+    ax1.tick_params(labelrotation=30)
     ax1.set_yticks(ticks=[y for y in range(int(min(c)), int(max(c)) + 200, 200)],
                    labels=["£" + str(x) + ".00" for x in range(int(min(c)),
                                                                int(max(c)) + 200, 200)],
                    rotation=0)
-
     # Render chart with legend
     ax1.legend()
     if save: plt.savefig('Images/part_c.png')

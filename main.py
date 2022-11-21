@@ -30,7 +30,7 @@ def collage(showplt=True, savepltimg=False):
             fig_, ax1_ = plt.subplots(1, 1, figsize=(19.2, 10.8))
             ax2_ = None
         ## Call part_x function and delete plt vars
-        part(ax1_, ax2_, show=False, save=True)
+        part(fig_, ax1_, ax2_, show=False, save=True)
         del fig_, ax1_, ax2_
     plt.style.use('default')
     ## Load and plot images
