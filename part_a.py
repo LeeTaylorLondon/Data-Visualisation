@@ -48,6 +48,7 @@ nd = newcastle_data
 def part_a(fig, ax1, ax2, show=True, save=False):
     fig.suptitle("Regional Comparison of House Types and Prices")
     ## Axis 1 - London Data
+    ax1.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax1.grid(axis='y', color='black')
     ax1.bar(ld['Property_Type'], ld['Avg_Price'], color=
             [(1.0, 0, 0, 1.0), (0.75, 0, 0, 1.0),
@@ -60,6 +61,7 @@ def part_a(fig, ax1, ax2, show=True, save=False):
     ax1.set_ylabel("Average Prices £")
     ax1.set_ylim(0, 1_000_000)
     ## Axis 2 - Newcastle Data
+    ax2.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax2.grid(axis='y', color='black')
     ax2.bar(nd['Property_Type'], nd['Avg_Price'], color=[
         (0, 0, 1.0, 1), (0, 0, 0.75, 1),

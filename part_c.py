@@ -35,7 +35,7 @@ def part_c(fig, ax1, _, show=True, save=False):
     plt.style.use('dark_background')
     ax1 = plt.axes()
     ax1.grid(color='white')
-    ax1.set_facecolor('black')
+    ax1.set_facecolor(color=(0.10, 0.10, 0.10, 1.0))
     fig.suptitle("FTSE 100 Index - Close Price - 5 Years")
     # Shorten variable names
     d = ftse5y['date']   # d = Dates
@@ -43,8 +43,8 @@ def part_c(fig, ax1, _, show=True, save=False):
     # Calculate moving average
     ma = calc_moving_avg(1, 0.025, ftse5y)
     # Plot data
-    ax1.plot(d, c, linewidth=1.25, color=(0, 0.8, 0, 1.0), label='Close Price')
-    ax1.plot(d, ma, linewidth=1.0, color=(0.0, 0.7, 0.6, 1.0), label='Moving Average')
+    ax1.plot(d, c, linewidth=1.5, color=(0, 0.6, 0, 1.0), label='Close Price')
+    ax1.plot(d, ma, linewidth=1.2, color=(0.0, 0.7, 0.6, 1.0), label='Moving Average')
     # Title and Axis labels
     ax1.set_title("FTSE Data", size=20)
     ax1.set_xlabel("Date (Year-Month-Day)")
@@ -52,10 +52,9 @@ def part_c(fig, ax1, _, show=True, save=False):
     # Axis tickers and labels
     ax1.set_xticks(ticks=[x for x in range(0, len(d), 125)])
     ax1.tick_params(labelrotation=25, length=10)
-    ax1.set_yticks(ticks=[y for y in range(int(min(c)), int(max(c)) + 200, 200)],
-                   labels=["£" + str(x) + ".00" for x in range(int(min(c)),
-                                                               int(max(c)) + 200, 200)],
-                   rotation=0)
+    yticks  = [y for y in range(int(min(c)), int(max(c)) + 200, 200)]
+    ylabels = ["£" + str(x) + ".00" for x in yticks]
+    ax1.set_yticks(ticks=yticks, labels=ylabels, rotation=0)
     # Render chart with legend
     ax1.legend()
     if save: plt.savefig('Images/part_c.png')
@@ -63,7 +62,7 @@ def part_c(fig, ax1, _, show=True, save=False):
 
 
 if __name__ == '__main__':
-    plt.rcParams.update({'font.size': 20})
+    plt.rcParams.update({'font.size': 16})
     fig_, ax1_ = plt.subplots(1, 1, figsize=(19.2, 10.8),
                               facecolor=(0.90, 0.90, 0.90, 1))
-    part_c(ax1_, fig_, False, True)
+    part_c(fig_, ax1_, None, False, True)

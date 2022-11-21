@@ -37,13 +37,15 @@ bbsc = bbSpeedDf_cleaned
 def part_b(fig, ax1, ax2, show=True, save=False):
     fig.suptitle("National Download to Upload Speed Comparison")
     ## Non clean data
-    ax1.grid()
+    ax1.grid(color=(0.05, 0.05, 0.05, 1.0))
+    ax1.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax1.set_title("Dataset with outliers", color='red')
     ax1.set_xlabel("Average Broadband Download Speed")
     ax1.set_ylabel("Average Broadband Upload Speed")
     x, y = bbs['averageDown'], bbs['averageUpload']
     ax1.scatter(x=x, y=y, color='red',
              label='Down to Up Speed')
+    ax1.set_yticks(ticks=[x*10 for x in range(11)], rotation=0)
     # Regression line
     b, a = np.polyfit(x, y, deg=1)
     xseq = np.linspace(25, 165)
@@ -51,7 +53,8 @@ def part_b(fig, ax1, ax2, show=True, save=False):
              label='Regression Line')
     ax1.legend()
     ## Clean data
-    ax2.grid()
+    ax2.grid(color=(0.05, 0.05, 0.05, 1.0))
+    ax2.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax2.set_title("Dataset with outliers removed", color='blue')
     ax2.set_xlabel("Average Broadband Download Speed")
     ax2.set_ylabel("Average Broadband Upload Speed")

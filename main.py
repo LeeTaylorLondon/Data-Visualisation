@@ -13,9 +13,9 @@ def collage(showplt=True, savepltimg=False):
     plt.rcParams.update({'font.size': 16})
     fig, (r1, r2) = plt.subplots(2, 2, figsize=(19.2, 10.8),
                                  facecolor=(0.60, 0.60, 0.60, 1))
-    fig.suptitle("State of the (UK) Nation 2021", size=20)
-    fig.tight_layout(pad=0.5)
-    plt.subplots_adjust(wspace=-0.1)
+    fig.suptitle("State of the (UK) Nation 2021", size=18)
+    fig.tight_layout(pad=0.4)
+    plt.subplots_adjust(wspace=-0.05)
     plts = [r1[0], r1[1], r2[0], r2[1]]
     for plt_ in plts:
         plt_.set_xticks([])
