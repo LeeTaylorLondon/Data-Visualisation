@@ -44,7 +44,6 @@ def collage(showplt=True, savepltimg=False):
 
 if __name__ == '__main__':
     collage(showplt=False, savepltimg=True)
-
     # Todo: Rotate part_c x-labels
     # Todo: Write short summaries for each plot
     # Todo: part_b highlight one or two areas of interest

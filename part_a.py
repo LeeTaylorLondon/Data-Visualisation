@@ -48,7 +48,7 @@ nd = newcastle_data
 def part_a(ax1, ax2, show=True, save=False):
     ## Axis 1 - London Data
     ax1.grid(axis='y', color='black')
-    ax1.bar(ld['Property_Type'], ld['Avg_Price'], color='red', )
+    ax1.bar(ld['Property_Type'], ld['Avg_Price'], color='red')
     ax1.set_title("London", color='red')
     ax1.tick_params('x', labelrotation=0)
     ax1.set_yticks(ticks=[x*200_000 for x in range(6)])
@@ -66,11 +66,12 @@ def part_a(ax1, ax2, show=True, save=False):
     ax2.set_xlabel("Property Types")
     ax2.set_ylabel("Average Prices £")
     ax2.set_ylim(0, 1_000_000)
-
+    # Arguments
     if save: plt.savefig('Images/part_a.png')
     if show: plt.show()
 
 
 if __name__ == '__main__':
+    plt.rcParams.update({'font.size': 20})
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(19.2, 10.8))
-
+    part_a(ax1, ax2, False, True)
