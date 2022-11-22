@@ -15,7 +15,7 @@ def collage(showplt=True, savepltimg=False):
 
     ## Configure main figure and subplots
     fig, (r1, r2) = plt.subplots(2, 2, figsize=(19.2, 10.8),
-                                 facecolor=(0.07, 0.14, 0.2, 1))
+                                 facecolor=(0.09, 0.31, 0.41, 1))
     fig.suptitle("State of the (UK) Nation 2021", size=18, color='white')
     fig.tight_layout(pad=0.4)
     plt.subplots_adjust(wspace=-0.05)

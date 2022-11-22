@@ -55,7 +55,7 @@ def part_a(fig, ax1, ax2, show=True, save=False):
             [(0.6, 0.48, 0.37, 1.0), (0.5, 0.38, 0.27, 1.0),
              (0.4, 0.28, 0.17, 1.0), (0.3, 0.18, 0.07, 1.0)])
     ax1.set_title("London", color=(0.5, 0.38, 0.27, 1.0))
-    ax1.tick_params('x', labelrotation=25)
+    ax1.tick_params('x', labelrotation=0, size=16)
     ax1.set_yticks(ticks=[x*200_000 for x in range(6)])
     ax1.set_yticklabels(labels=["£0", "£200K", "£400K",  "£600K", "£800K", "£1M"])
     ax1.set_xlabel("Property Types")
@@ -65,9 +65,9 @@ def part_a(fig, ax1, ax2, show=True, save=False):
     ax2.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax2.grid(axis='y', color='black')
     ax2.bar(nd['Property_Type'], nd['Avg_Price'], color=[
-        (0.38, 0.78, 0.95, 1), (0.28, 0.68, 0.85, 1),
-        (0.18, 0.58, 0.75, 1), (0.08, 0.48, 0.65, 1)])
-    ax2.set_title("Newcastle upon Tyne", color=(0.08, 0.48, 0.65, 1))
+        (0.22, 0.47, 0.44, 1), (0.16, 0.41, 0.38, 1),
+        (0.11, 0.36, 0.33, 1), (0.06, 0.31, 0.28, 1)])
+    ax2.set_title("Newcastle upon Tyne", color=(0.17, 0.42, 0.39, 1))
     ax2.tick_params('x', labelrotation=0)
     ax2.set_yticks(ticks=[x*200_000 for x in range(6)])
     ax2.set_yticklabels(labels=["£0", "£200K", "£400K",  "£600K", "£800K", "£1M"])
