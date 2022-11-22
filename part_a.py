@@ -55,7 +55,7 @@ def part_a(fig, ax1, ax2, show=True, save=False):
             [(0.6, 0.48, 0.37, 1.0), (0.5, 0.38, 0.27, 1.0),
              (0.4, 0.28, 0.17, 1.0), (0.3, 0.18, 0.07, 1.0)])
     ax1.set_title("London", color=(0.5, 0.38, 0.27, 1.0))
-    ax1.tick_params('x', labelrotation=0)
+    ax1.tick_params('x', labelrotation=25)
     ax1.set_yticks(ticks=[x*200_000 for x in range(6)])
     ax1.set_yticklabels(labels=["£0", "£200K", "£400K",  "£600K", "£800K", "£1M"])
     ax1.set_xlabel("Property Types")
@@ -80,6 +80,6 @@ def part_a(fig, ax1, ax2, show=True, save=False):
 
 
 if __name__ == '__main__':
-    plt.rcParams.update({'font.size': 20})
+    plt.rcParams.update({'font.size': 18})
     fig_, (ax1_, ax2_) = plt.subplots(1, 2, figsize=(19.2, 10.8))
     part_a(fig_, ax1_, ax2_, False, True)

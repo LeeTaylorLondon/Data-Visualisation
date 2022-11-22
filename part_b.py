@@ -39,11 +39,11 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     ## Non clean data
     ax1.grid(color=(0.05, 0.05, 0.05, 1.0))
     ax1.set_facecolor((0.8, 0.8, 0.8, 1.0))
-    ax1.set_title("Dataset with outliers", color='red')
+    ax1.set_title("Dataset with outliers", color=(0.0, 0.5, 0.5, 1.0))
     ax1.set_xlabel("Average Broadband Download Speed")
     ax1.set_ylabel("Average Broadband Upload Speed")
     x, y = bbs['averageDown'], bbs['averageUpload']
-    ax1.scatter(x=x, y=y, color='red',
+    ax1.scatter(x=x, y=y, color=(0.0, 0.5, 0.5, 1.0),
              label='Down to Up Speed')
     ax1.set_yticks(ticks=[x*10 for x in range(11)], rotation=0)
     # Regression line
@@ -55,12 +55,13 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     ## Clean data
     ax2.grid(color=(0.05, 0.05, 0.05, 1.0))
     ax2.set_facecolor((0.8, 0.8, 0.8, 1.0))
-    ax2.set_title("Dataset with outliers removed", color='blue')
+    ax2.set_title("Dataset with outliers removed",
+                  color=(0.5, 0.0, 0.5, 1.0))
     ax2.set_xlabel("Average Broadband Download Speed")
     ax2.set_ylabel("Average Broadband Upload Speed")
     # Regression line
     x2, y2 = bbsc['averageDown'], bbsc['averageUpload']
-    ax2.scatter(x=x2, y=y2, color='blue',
+    ax2.scatter(x=x2, y=y2, color=(0.5, 0.0, 0.5, 1.0),
              label='Down to Up Speed')
     b2, a2 = np.polyfit(x2, y2, deg=1)
     xseq = np.linspace(30, 100)
