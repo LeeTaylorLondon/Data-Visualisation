@@ -5,42 +5,37 @@ from imports import *
 ''' Part A - Create House DataFrame
 Read the CSV file into a dataframe and rename the columns '''
 ## Create house data frame
-houseDf = pd.read_csv("Data/Average-prices-Property-Type-2021-05_wrangled.csv")
+houseDf = pd.read_csv("Data/Average-prices-Property-Type-2021-05_modified.csv")
 
 ## Standardize columns names
 colNames = houseDf.columns
-print(f"Before: {colNames}")
+# print(f"Before: {colNames}")
 houseDf.rename(columns={houseDf.columns[2]:'Property_Type'}, inplace=True)
 houseDf.rename(columns={houseDf.columns[3]:'Avg_Price'}, inplace=True)
 
-# Print houseDf information
-houseDf.columns
-print(houseDf[:5])
+## Print houseDf information
+# houseDf.columns
+# print(houseDf[:5])
 
+london_data = pd.DataFrame({'London Detached Avg': 0,
+                            'London Semi Detached Avg': 0,
+                            'London Terraced Avg': 0,
+                            'London Flat Avg': 0},
+                           index=[0])
 
-''' Seperate Data by Region
-The wrangled data is seperated into two different dataframes by region '''
-london_data    = pd.DataFrame(columns=['Date', 'Region_Name', 'Property_Type', 'Avg_Price'])
-newcastle_data = pd.DataFrame(columns=['Date', 'Region_Name', 'Property_Type', 'Avg_Price'])
-
-for i,v in enumerate(houseDf['Region_Name']):
-  if v.lower()[0] == 'l':
-    london_data = london_data.append(houseDf.loc[i], ignore_index=True)
-  elif v.lower()[0] == 'n':
-    newcastle_data = newcastle_data.append(houseDf.loc[i], ignore_index=True)
-
-print(">>> LONDON DATA")
-print(london_data)
-print()
-
-print(">>> NEWCASTLE DATA")
-print(newcastle_data)
+newcastle_data = pd.DataFrame({'Newcastle Detached Avg': 0,
+                            'Newcastle Semi Detached Avg': 0,
+                            'Newcastle Terraced Avg': 0,
+                            'Newcastle Flat Avg': 0},
+                           index=[0])
 
 
 ''' Subplot London & Newcastle
-Compare four categories of housing and their prices in two regions of the UK. This is nominal data where each category is a house type.
-
+Compare four categories of housing and their prices in two regions of the UK. 
+This is nominal data where each category is a house type.
 ~Compare four types of housing and their prices in two regions of the UK. '''
+
+
 ld = london_data
 nd = newcastle_data
 
@@ -83,6 +78,24 @@ def part_a(fig, ax1, ax2, show=True, save=False):
 
 
 if __name__ == '__main__':
-    plt.rcParams.update({'font.size': 18})
-    fig_, (ax1_, ax2_) = plt.subplots(1, 2, figsize=(19.2, 10.8))
-    part_a(fig_, ax1_, ax2_, False, True)
+    # print(houseDf.columns)
+    # print(houseDf.columns[4:8])
+    # print(houseDf.columns[8:12])
+
+    print(london_data)
+
+    for col in london_data.columns:
+        print(houseDf[col][0])
+        london_data[col][0] = houseDf[col][0]
+    # print(london_data.columns)
+
+    print("Actual")
+    print(london_data)
+
+    # print("\nLONDONNNNNN\n", london_data)
+    # print("\nNEWWY CAR SAULLLL", newcastle_data)
+
+    ## Plot data
+    # plt.rcParams.update({'font.size': 18})
+    # fig_, (ax1_, ax2_) = plt.subplots(1, 2, figsize=(19.2, 10.8))
+    # part_a(fig_, ax1_, ax2_, False, True)
