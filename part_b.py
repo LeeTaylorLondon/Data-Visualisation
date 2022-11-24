@@ -36,6 +36,7 @@ bbsc = bbSpeedDf_cleaned
 
 def part_b(fig, ax1, ax2, show=True, save=False):
     fig.suptitle("National Download to Upload Speed Comparison")
+    fig.text(0.01, 0.95, "FIGURE B", size=25)
     ## Non clean data
     ax1.grid(color=(0.05, 0.05, 0.05, 1.0))
     ax1.set_facecolor((0.8, 0.8, 0.8, 1.0))
