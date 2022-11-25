@@ -53,8 +53,6 @@ def collage(showplt=True, savepltimg=False):
 
 if __name__ == '__main__':
     collage(showplt=False, savepltimg=True)
-    # Todo: part_b highlight one or two areas of interest
-    # Todo: part_c time period dashed vertical lines
     # Todo: Include short paragraph for each panel
     # Todo: Write short summaries for each plot - Explain moving average for part_c
     # Todo: 1,000 Word Report

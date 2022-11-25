@@ -33,7 +33,7 @@ bbSpeedDf_cleaned.reset_index(drop=True, inplace=True)
 ## Remove outliers by upload speed
 dropped = []
 for i,uspeed in enumerate(bbSpeedDf_cleaned['averageUpload']):
-    if uspeed > 20:
+    if uspeed > 20 or uspeed < 6:
         dropped.append(i)
         bbSpeedDf_outliers = bbSpeedDf_outliers.append(bbSpeedDf_cleaned.loc[i])
         bbSpeedDf_cleaned.drop(index=i, inplace=True)
@@ -67,7 +67,7 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     # Regression line
     b, a = np.polyfit(x, y, deg=1)
     xseq = np.linspace(25, 165)
-    ax1.plot(xseq, a + b * xseq, color='k', lw=2.0,
+    ax1.plot(xseq, a + b * xseq, color='red', lw=3.0,
              label='Regression Line')
     ax1.legend()
     ## Clean data
@@ -81,11 +81,11 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     ax2.set_yticks(ticks=yticks, labels=yticks, rotation=0)
     # Regression line
     x2, y2 = bbsc['averageDown'], bbsc['averageUpload']
-    ax2.scatter(x=x2, y=y2, color=(0.5, 0.0, 0.5, 1.0),
+    ax2.scatter(x=x2, y=y2, color=(0.35, 0.0, 0.35, 1.0),
              label='Down to Up Speed')
     b2, a2 = np.polyfit(x2, y2, deg=1)
     xseq = np.linspace(30, 110)
-    ax2.plot(xseq, a2 + b2 * xseq, color='k', lw=2.0,
+    ax2.plot(xseq, a2 + b2 * xseq, color='red', lw=3.0,
              label='Regression Line')
     ax2.legend()
 
@@ -94,6 +94,9 @@ def part_b(fig, ax1, ax2, show=True, save=False):
 
 
 if __name__ == '__main__':
+    plt.rcParams.update({'font.size': 18})
+    fig_, (ax1_, ax2_) = plt.subplots(1, 2, figsize=(19.2, 10.8))
+    part_b(fig_, ax1_, ax2_, False, True)
     pass
 
 
