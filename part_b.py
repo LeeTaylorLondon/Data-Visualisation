@@ -1,19 +1,28 @@
 # Author: Lee Taylor, ST Number: 190211479
+import pandas as pd
+
 from imports import *
 
 ## Create house data frame
 bbSpeedDf = pd.read_csv("Data/202006_fixed_laua_performance_wrangled.csv")
 
 ## Print dataset information
-print(">>> Broadband speed original dataset")
-print(bbSpeedDf[:5])
-print(f"Len(bbSpeedDf) = {len(bbSpeedDf)}")
-print()
+# print(">>> Broadband speed original dataset")
+# print(bbSpeedDf[:5])
+# print(f"Len(bbSpeedDf) = {len(bbSpeedDf)}")
+# print()
 
 ## Print dataset copy information
 bbSpeedDf_cleaned = bbSpeedDf.__copy__()
-print(">>> Broadband speed dataset copied")
-print(bbSpeedDf_cleaned[:5])
+# print(">>> Broadband speed dataset copied")
+# print(bbSpeedDf_cleaned[:5])
+
+# ['laua', 'laua_name', 'medDown', 'averageDown', 'medUpload',
+#        'averageUpload']
+
+bbSpeedDf_outliers = pd.DataFrame(columns=['laua', 'laua_name', 'medDown',
+                                           'averageDown', 'medUpload',
+                                            'averageUpload'])
 
 ## Remove outliers by download speed
 for i,dspeed in enumerate(bbSpeedDf_cleaned['averageDown']):
@@ -21,18 +30,25 @@ for i,dspeed in enumerate(bbSpeedDf_cleaned['averageDown']):
     bbSpeedDf_cleaned.drop(index=i, inplace=True)
 bbSpeedDf_cleaned.reset_index(drop=True, inplace=True)
 ## Remove outliers by upload speed
+dropped = []
 for i,uspeed in enumerate(bbSpeedDf_cleaned['averageUpload']):
   if uspeed > 20:
-    bbSpeedDf_cleaned.drop(index=i, inplace=True)
+      dropped.append(i)
+      bbSpeedDf_outliers = bbSpeedDf_outliers.append(bbSpeedDf.loc[i])
+      bbSpeedDf_cleaned.drop(index=i, inplace=True)
 bbSpeedDf_cleaned.reset_index(drop=True, inplace=True)
 
-print(f"Len(bbSpeedDf_cleaned) = {len(bbSpeedDf_cleaned)}")
+print(bbSpeedDf_outliers)
+
+## Debug information
+# print(f"Len(bbSpeedDf_cleaned) = {len(bbSpeedDf_cleaned)}")
 
 ## Sorting by average download & upload speed has no effect
 # bbSpeedDf.sort_values(by=['averageDown', 'averageUpload'], ascending=False, inplace=True)
 
 bbs  = bbSpeedDf
 bbsc = bbSpeedDf_cleaned
+bbso = bbSpeedDf_outliers
 
 def part_b(fig, ax1, ax2, show=True, save=False):
     fig.suptitle("National Download to Upload Speed Comparison")
@@ -46,6 +62,8 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     x, y = bbs['averageDown'], bbs['averageUpload']
     ax1.scatter(x=x, y=y, color=(0.16, 0.30, 0.38, 1.0),
              label='Down to Up Speed')
+    xo, yo = bbso['averageDown'], bbso['averageUpload']
+    ax1.scatter(x=xo, y=yo, color='orange')
     ax1.set_yticks(ticks=[x*10 for x in range(11)], rotation=0)
     # Regression line
     b, a = np.polyfit(x, y, deg=1)
@@ -66,10 +84,15 @@ def part_b(fig, ax1, ax2, show=True, save=False):
              label='Down to Up Speed')
     b2, a2 = np.polyfit(x2, y2, deg=1)
     xseq = np.linspace(30, 100)
-    ax2.plot(xseq, a + b * xseq, color='k', lw=2.0,
+    ax2.plot(xseq, a2 + b2 * xseq, color='k', lw=2.0,
              label='Regression Line')
     ax2.legend()
 
     if save: plt.savefig('Images/part_b.png')
     if show: plt.show()
+
+
+if __name__ == '__main__':
+    pass
+
 
