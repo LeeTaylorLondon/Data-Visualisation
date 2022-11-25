@@ -48,14 +48,13 @@ def collage(showplt=True, savepltimg=False):
 
     ## Save plot image then render (both optional)
     if showplt: fig.show()
-    if savepltimg: fig.savefig('final.png')
+    if savepltimg: fig.savefig('Images/final.png')
 
 
 if __name__ == '__main__':
     collage(showplt=False, savepltimg=True)
     # Todo: part_b highlight one or two areas of interest
     # Todo: part_c time period dashed vertical lines
-    # Todo: (optional) part_a include legend
     # Todo: Include short paragraph for each panel
     # Todo: Write short summaries for each plot - Explain moving average for part_c
     # Todo: 1,000 Word Report

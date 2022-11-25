@@ -56,6 +56,9 @@ def part_c(fig, ax1, _, show=True, save=False):
     yticks  = [y for y in range(int(min(c)), int(max(c)) + 200, 200)]
     ylabels = ["£" + str(x) + ".00" for x in yticks]
     ax1.set_yticks(ticks=yticks, labels=ylabels, rotation=0)
+    # Highlight corona time period
+    ax1.axvspan('2020-02-27', '2020-12-23',
+               label="Corona Virus", color="red", alpha=0.3)
     # Render chart with legend
     ax1.legend()
     if save: plt.savefig('Images/part_c.png')
