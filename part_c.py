@@ -37,7 +37,7 @@ def part_c(fig, ax1, _, show=True, save=False):
     ax1.grid(color='white')
     ax1.set_facecolor(color=(0.10, 0.10, 0.10, 1.0))
     fig.suptitle("FTSE 100 Index - Close Price - 5 Years")
-    fig.text(0.01, 0.95, "FIGURE C", size=25)
+    fig.text(0.01, 0.95, "FIGURE C", size=25, color=(0.35, 0.35, 0.35, 1.0))
     # Shorten variable names
     d = ftse5y['date']   # d = Dates
     c = ftse5y['Close']  # c = Close prices
@@ -45,7 +45,7 @@ def part_c(fig, ax1, _, show=True, save=False):
     ma = calc_moving_avg(1, 0.025, ftse5y)
     # Plot data
     ax1.plot(d, c, linewidth=1.5, color=(0.99, 0.99, 0.99, 1.0), label='Close Price')
-    ax1.plot(d, ma, linewidth=1.2, color=(0.06, 0.24, 0.8, 1.0), label='Moving Average')
+    ax1.plot(d, ma, linewidth=1.2, color=(0.12, 0.48, 0.8, 1.0), label='Moving Average')
     # Title and Axis labels
     ax1.set_title("FTSE Data", size=20)
     ax1.set_xlabel("Date (Year-Month-Day)")

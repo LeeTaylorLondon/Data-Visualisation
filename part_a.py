@@ -61,7 +61,7 @@ for i,v in enumerate(houseDf['Date']):
 
 def part_a(fig, ax1, ax2, show=True, save=False):
     fig.suptitle("Regional Comparison of House Types and Prices 2021")
-    fig.text(0.01, 0.95, "FIGURE A", size=25)
+    fig.text(0.01, 0.95, "FIGURE A", size=25, color=(0.35, 0.35, 0.35, 1.0))
     fig.text(0.46, 0.02, "Property Types", size=19)
     ## Axis 1 - London Data
     ax1.set_facecolor((0.8, 0.8, 0.8, 1.0))
