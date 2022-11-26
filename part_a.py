@@ -66,14 +66,17 @@ def part_a(fig, ax1, ax2, show=True, save=False):
     ## Axis 1 - London Data
     ax1.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax1.grid(axis='y', color='black')
-    ax1.bar(ld['Property_Type'], ld['Avg_Price'], color=
+    ax1_bars = ax1.bar(ld['Property_Type'], ld['Avg_Price'], color=
             [(0.6, 0.48, 0.37, 1.0), (0.5, 0.38, 0.27, 1.0),
              (0.4, 0.28, 0.17, 1.0), (0.3, 0.18, 0.07, 1.0)],
             label=['Detached', 'Semi Detached', 'Terraced', 'Flat'])
+    ax1.bar_label(container=ax1_bars, labels=['£968,220.51', '£628,968.47',
+                                              '£331,361.75', '£196,840.76'],
+                  size=16, color=(0.0, 0.0, 0.0, 1.0))
     ax1.set_title("London", color=(0.5, 0.38, 0.27, 1.0))
     ax1.tick_params('x', labelrotation=20)
-    ax1.set_yticks(ticks=[x*50_000 for x in range(21)])
-    ax1.set_yticklabels(labels=["£" + str(x*50) + "K" for x in range(21)], size=16)
+    ax1.set_yticks(ticks=[x*100_000 for x in range(11)])
+    ax1.set_yticklabels(labels=["£" + str(x*100) + "K" for x in range(11)], size=16)
     # ax1.set_xlabel("Property Types")
     ax1.set_ylabel("Average Prices £")
     ax1.set_ylim(0, 1_000_000)
@@ -81,14 +84,17 @@ def part_a(fig, ax1, ax2, show=True, save=False):
     ## Axis 2 - Newcastle Data
     ax2.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax2.grid(axis='y', color='black')
-    ax2.bar(nd['Property_Type'], nd['Avg_Price'], color=[
+    ax2_bars = ax2.bar(nd['Property_Type'], nd['Avg_Price'], color=[
         (0.22, 0.47, 0.44, 1), (0.16, 0.41, 0.38, 1),
         (0.11, 0.36, 0.33, 1), (0.06, 0.31, 0.28, 1)],
             label=['Detached', 'Semi Detached', 'Terraced', 'Flat'])
+    ax2.bar_label(ax2_bars, labels=['£538,415.38', '£427,992.37',
+                                    '£167,206.52', '£114,659.79'],
+                  size=16, color=(0.0, 0.0, 0.0, 1.0))
     ax2.set_title("Newcastle upon Tyne", color=(0.17, 0.42, 0.39, 1))
     ax2.tick_params('x', labelrotation=20)
-    ax2.set_yticks(ticks=[x*50_000 for x in range(21)])
-    ax2.set_yticklabels(labels=["£" + str(x*50) + "K" for x in range(21)], size=16)
+    ax2.set_yticks(ticks=[x*100_000 for x in range(11)])
+    ax2.set_yticklabels(labels=["£" + str(x*100) + "K" for x in range(11)], size=16)
     # ax2.set_xlabel("Property Types")
     ax2.set_ylabel("Average Prices £")
     ax2.set_ylim(0, 1_000_000)

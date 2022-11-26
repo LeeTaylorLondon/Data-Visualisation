@@ -37,7 +37,7 @@ def part_c(fig, ax1, _, show=True, save=False):
     ax1.grid(color='white')
     ax1.set_facecolor(color=(0.10, 0.10, 0.10, 1.0))
     fig.suptitle("FTSE 100 Index - Close Price - 5 Years")
-    fig.text(0.01, 0.95, "FIGURE C", size=25, color=(0.35, 0.35, 0.35, 1.0))
+    fig.text(0.01, 0.95, "FIGURE C", size=25, color=(0.65, 0.65, 0.65, 1.0))
     # Shorten variable names
     d = ftse5y['date']   # d = Dates
     c = ftse5y['Close']  # c = Close prices
