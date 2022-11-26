@@ -1,4 +1,5 @@
 # Author: Lee Taylor, ST Number: 190211479
+import numpy as np
 import pandas as pd
 
 from imports import *
@@ -56,7 +57,7 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     ax1.grid(color=(0.05, 0.05, 0.05, 1.0))
     ax1.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax1.set_title("Dataset with outliers", color=(0.16, 0.30, 0.38, 1.0))
-    ax1.set_xlabel("Average Broadband Download Speed")
+
     ax1.set_ylabel("Average Broadband Upload Speed")
     x, y = bbs['averageDown'], bbs['averageUpload']
     ax1.scatter(x=x, y=y, color=(0.16, 0.30, 0.38, 1.0),
@@ -75,7 +76,7 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     ax2.set_facecolor((0.8, 0.8, 0.8, 1.0))
     ax2.set_title("Dataset with outliers removed",
                   color=(0.5, 0.0, 0.5, 1.0))
-    ax2.set_xlabel("Average Broadband Download Speed")
+
     ax2.set_ylabel("Average Broadband Upload Speed")
     yticks = [x for x in range(6, 20)]
     ax2.set_yticks(ticks=yticks, labels=yticks, rotation=0)
@@ -88,6 +89,16 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     ax2.plot(xseq, a2 + b2 * xseq, color='red', lw=3.0,
              label='Regression Line')
     ax2.legend()
+
+    cc  = np.corrcoef(x, y)  # Correlation calculation
+    ccc = np.corrcoef(x2, y2)
+    print(cc)
+    print(ccc)
+
+    ax1.set_xlabel(f"Average Broadband Download Speed"
+                   f"\nCorrelation (Download & Upload) = {round(cc[0][1], 5)}")
+    ax2.set_xlabel(f"Average Broadband Download Speed"
+                   f"\nCorrelation (Download & Upload) = {round(ccc[0][1], 5)}")
 
     if save: plt.savefig('Images/part_b.png')
     if show: plt.show()
