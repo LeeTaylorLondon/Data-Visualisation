@@ -96,9 +96,9 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     print(ccc)
 
     ax1.set_xlabel(f"Average Broadband Download Speed"
-                   f"\nCorrelation (Download & Upload) = {round(cc[0][1], 5)}")
+                   f"\n\nCorrelation (Download & Upload) = {round(cc[0][1], 5)}")
     ax2.set_xlabel(f"Average Broadband Download Speed"
-                   f"\nCorrelation (Download & Upload) = {round(ccc[0][1], 5)}")
+                   f"\n\nCorrelation (Download & Upload) = {round(ccc[0][1], 5)}")
 
     if save: plt.savefig('Images/part_b.png')
     if show: plt.show()
