@@ -1,7 +1,4 @@
 # Author: Lee Taylor, ST Number: 190211479
-import numpy as np
-import pandas as pd
-
 from imports import *
 
 ## Create house data frame
