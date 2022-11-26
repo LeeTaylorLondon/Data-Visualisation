@@ -53,7 +53,7 @@ def collage(showplt=True, savepltimg=False):
 
 if __name__ == '__main__':
     collage(showplt=False, savepltimg=True)
-    # Todo: Include short paragraph for each panel
-    # Todo: Write short summaries for each plot - Explain moving average for part_c
+    # Todo: write conclusion for part_c
+    # Todo: part_a data-preprocessing
     # Todo: 1,000 Word Report
     # Todo: 200 Word Report
