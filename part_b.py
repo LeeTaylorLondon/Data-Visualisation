@@ -53,36 +53,36 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     ## Non clean data
     ax1.grid(color=(0.05, 0.05, 0.05, 1.0))
     ax1.set_facecolor((0.8, 0.8, 0.8, 1.0))
-    ax1.set_title("Dataset with outliers", color=(0.16, 0.30, 0.38, 1.0))
+    ax1.set_title("Dataset with outliers (MB/S)", color=(0.16, 0.30, 0.38, 1.0))
 
-    ax1.set_ylabel("Average Broadband Upload Speed")
-    x, y = bbs['averageDown'], bbs['averageUpload']
+    ax1.set_ylabel("Average Broadband Upload Speed (MB/S)")
+    x, y = bbs['averageDown'] / 8, bbs['averageUpload'] / 8
     ax1.scatter(x=x, y=y, color=(0.16, 0.30, 0.38, 1.0),
              label='Down to Up Speed')
-    xo, yo = bbso['averageDown'], bbso['averageUpload']
+    xo, yo = bbso['averageDown'] / 8, bbso['averageUpload'] / 8
     ax1.scatter(x=xo, y=yo, color='orange', label='Outliers')
-    ax1.set_yticks(ticks=[x*10 for x in range(11)], rotation=0)
+    ax1.set_yticks(ticks=[x for x in range(13)], rotation=0)
     # Regression line
     b, a = np.polyfit(x, y, deg=1)
-    xseq = np.linspace(25, 165)
+    xseq = np.linspace(1, 20)
     ax1.plot(xseq, a + b * xseq, color='red', lw=3.0,
              label='Regression Line')
     ax1.legend()
     ## Clean data
     ax2.grid(color=(0.05, 0.05, 0.05, 1.0))
     ax2.set_facecolor((0.8, 0.8, 0.8, 1.0))
-    ax2.set_title("Dataset with outliers removed",
+    ax2.set_title("Dataset with outliers removed (MB/S)",
                   color=(0.5, 0.0, 0.5, 1.0))
 
-    ax2.set_ylabel("Average Broadband Upload Speed")
+    ax2.set_ylabel("Average Broadband Upload Speed (MB/S)")
     yticks = [x for x in range(6, 20)]
-    ax2.set_yticks(ticks=yticks, labels=yticks, rotation=0)
+    # ax2.set_yticks(ticks=yticks, labels=yticks, rotation=0)
     # Regression line
-    x2, y2 = bbsc['averageDown'], bbsc['averageUpload']
+    x2, y2 = bbsc['averageDown'] / 8, bbsc['averageUpload'] / 8
     ax2.scatter(x=x2, y=y2, color=(0.35, 0.0, 0.35, 1.0),
              label='Down to Up Speed')
     b2, a2 = np.polyfit(x2, y2, deg=1)
-    xseq = np.linspace(30, 110)
+    xseq = np.linspace(5, 14)
     ax2.plot(xseq, a2 + b2 * xseq, color='red', lw=3.0,
              label='Regression Line')
     ax2.legend()
@@ -92,9 +92,9 @@ def part_b(fig, ax1, ax2, show=True, save=False):
     print(cc)
     print(ccc)
 
-    ax1.set_xlabel(f"Average Broadband Download Speed"
+    ax1.set_xlabel(f"Average Broadband Download Speed (MB/S)"
                    f"\n\nCorrelation (Download & Upload) = {round(cc[0][1], 5)}")
-    ax2.set_xlabel(f"Average Broadband Download Speed"
+    ax2.set_xlabel(f"Average Broadband Download Speed (MB/S)"
                    f"\n\nCorrelation (Download & Upload) = {round(ccc[0][1], 5)}")
 
     if save: plt.savefig('Images/part_b.png')
