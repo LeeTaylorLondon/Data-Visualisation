@@ -57,7 +57,7 @@ def part_b(fig, ax1, ax2, show=True, save=False):
 
     ax1.set_ylabel("Average Broadband Upload Speed (MB/S)")
     x, y = bbs['averageDown'] / 8, bbs['averageUpload'] / 8
-    ax1.scatter(x=x, y=y, color=(0.16, 0.30, 0.38, 1.0),
+    ax1.scatter(x=x, y=y, color=(0.04, 0.075, 0.095, 1.0),
              label='Down to Up Speed')
     xo, yo = bbso['averageDown'] / 8, bbso['averageUpload'] / 8
     ax1.scatter(x=xo, y=yo, color='orange', label='Outliers')
